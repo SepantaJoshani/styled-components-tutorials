@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import { ThemeProvider } from "styled-components";
+import { Layout, Hero, Courses, StyledButton } from "./components";
 import { GlobalStyles } from "./GlobalStyle";
 
 import { lightTheme } from "./theme/theme";
@@ -8,7 +9,11 @@ const App = () => {
   return (
     <ThemeProvider theme={lightTheme}>
       <GlobalStyles />
-      <h1>شروع</h1>
+      <Layout>
+        <Hero />
+        <StyledButton>کلیک کن</StyledButton>
+        <Courses />
+      </Layout>
     </ThemeProvider>
   );
 };

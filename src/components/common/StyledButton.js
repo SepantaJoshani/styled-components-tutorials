@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const StyledBtn = styled.button`
+ const StyledButton = styled.button`
   background-image: ${(p) => p.theme.palette.gradient};
   color: #fff;
   padding: 0.75rem 1.5rem;
@@ -10,3 +10,5 @@ export const StyledBtn = styled.button`
   border: 0;
   cursor: pointer;
 `;
+
+export default StyledButton
