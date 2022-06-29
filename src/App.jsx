@@ -1,54 +1,44 @@
 import React, { useState } from "react";
-import styled, {
-  createGlobalStyle,
-  css,
-  ThemeProvider,
-} from "styled-components";
-import {
-  rotateAnimation,
-  sectionPadding,
-} from "./components/common/CommonStyles";
-import ViteImg from "./favicon.svg";
+import { AnimatePresence, motion } from "framer-motion";
+import styled, { ThemeProvider } from "styled-components";
+import { GlobalStyles } from "./components/global-styles/GlobalStyles";
+import { data } from "./data/data";
 import { theme } from "./theme/theme";
 
+const boxVariants = {
+  hidden: { opacity: 0 },
+  show: (t) => ({ opacity: 1, transition: { delay: 0.2 * t } }),
+  exit: { opacity: 0, x: "-100vh", transition: { duration: 1 } },
+};
+
 const App = () => {
-  const [isError, setIsError] = useState(false);
+  const [products, setProducts] = useState(data);
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyles />
       <Container>
-        {/* <Button lg onClick={() => setIsError((prev) => !prev)} error={isError}>
-          Click M3
-        </Button> */}
-        <ImgContainer />
+        <AnimatePresence>
+          {products.map(({ id, name }, i) => (
+            <Box
+              // layoutId={id}
+              onClick={() => setProducts(products.filter((p) => p.id !== id))}
+              key={id}
+              custom={i}
+              variants={boxVariants}
+              initial="hidden"
+              animate="show"
+              exit="exit"
+            >
+              <h2>{name}</h2>
+            </Box>
+          ))}
+        </AnimatePresence>
       </Container>
     </ThemeProvider>
   );
 };
 
 export default App;
-
-const GlobalStyles = createGlobalStyle`
-  * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  
-}
-
-
-body {
-  background-color: gray;
-  box-sizing: border-box;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-
-`;
 
 const Container = styled.section`
   min-height: 100vh;
@@ -59,44 +49,15 @@ const Container = styled.section`
   row-gap: 1rem;
 `;
 
-const ImgContainer = styled.div`
-  width: 400px;
-  height: 400px;
-  background-image: url(${ViteImg});
-  background-size: cover;
-  background-repeat: no-repeat;
-  /* ${rotateAnimation} */
-`;
-
-const lgStyles = (p) => {
-  if (p.lg)
-    return css`
-      padding: 1.5rem 2rem;
-      font-size: 1.5rem;
-      border-radius: 1rem;
-    `;
-
-  return css`
-    padding: 1rem 1.5rem;
-    font-size: 1rem;
-    border-radius: 0.5rem;
-  `;
-};
-
-
-
-const Button = styled.button`
-  position: relative;
-  overflow: hidden;
-  color: #fff;
-  background-color: ${(p) => (p.error ? "red" : "orange")};
-  ${lgStyles}
-  border: 0;
-  outline: 0;
-
-  
-
-  @media (max-width: ${(p) => p.theme.breakpoints.lg}) {
-    background-color: ${(p) => p.theme.palette.secondary};
+const Box = styled(motion.div)`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #fff;
+  width: 20rem;
+  height: 8rem;
+  border-radius: 0.5rem;
+  h2 {
+    font-style: italic;
   }
 `;
