@@ -8,8 +8,11 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "framer-motion": "^6.3.16",
+    "hamburger-react": "^2.5.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
+    "react-haiku": "^2.0.1",
     "styled-components": "^5.3.5"
   },
   "devDependencies": {

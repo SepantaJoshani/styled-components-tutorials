@@ -1,28 +1,15 @@
-import { css, keyframes } from "styled-components";
+import { css } from "styled-components";
 
-const rotate = keyframes`
-  
-from{
-  transform: rotate(0deg);
-}
-
-to {
-  transform: rotate(360deg);
-}
-
-`;
-
-export const sectionPadding = css`
-  padding: 0 24px;
-
-  @media (min-width: 640px) {
-    padding: 0 48px;
+export const PaddingWrapper = css`
+  @media (min-width: ${(p) => p.theme.breakpoints.sm}) {
+    padding: 1rem 3rem;
   }
-  @media (min-width: 1024px) {
-    padding: 0 96px;
+  @media (min-width: ${(p) => p.theme.breakpoints.md}) {
+    padding: 1rem 6rem;
   }
 `;
 
-export const rotateAnimation = css`
-  animation: ${rotate} 10s linear infinite;
+export const MaxWidth = css`
+  max-width: 1280px;
+  margin: 0 auto;
 `;
