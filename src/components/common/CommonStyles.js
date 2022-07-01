@@ -1,6 +1,7 @@
 import { css } from "styled-components";
 
 export const PaddingWrapper = css`
+  padding: 1rem 1.5rem;
   @media (min-width: ${(p) => p.theme.breakpoints.sm}) {
     padding: 1rem 3rem;
   }

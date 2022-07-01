@@ -2,6 +2,7 @@ import React from "react";
 import Header from "./Header";
 import Footer from "./Footer";
 import styled from "styled-components";
+import { PaddingWrapper } from "../common/CommonStyles";
 
 const Layout = ({ children }) => {
   return (
@@ -17,4 +18,5 @@ export default Layout;
 
 const Main = styled.main`
   min-height: 100vh;
+  ${PaddingWrapper}
 `;
