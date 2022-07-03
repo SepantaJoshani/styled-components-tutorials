@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-
+import Banner from "../../../assets/images/banner.png";
 
 export const HeroContainer = styled.section`
   display: flex;
