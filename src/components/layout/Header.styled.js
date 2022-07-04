@@ -15,7 +15,7 @@ export const Nav = styled.nav`
   ${MaxWidth}
 
   .hamburger-react {
-    color: #242424;
+    
     display: none;
     @media (max-width: ${(p) => p.theme.breakpoints.md}) {
       display: block;

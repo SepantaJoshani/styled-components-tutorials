@@ -29,7 +29,12 @@ const Header = () => {
     <StyledHeader>
       <Nav>
         <Logo>Fronthooks</Logo>
-        <Hamburger size={smDown ? 24 : 30} toggled={isOpen} toggle={setOpen} />
+        <Hamburger
+          color={theme === "light" ? "#242424" : "#fff"}
+          size={smDown ? 24 : 30}
+          toggled={isOpen}
+          toggle={setOpen}
+        />
         <MenuList isOpen={isOpen}>
           {menuLinks.map(({ id, content }) => (
             <MenuLink key={id}>{content}</MenuLink>
