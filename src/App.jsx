@@ -11,7 +11,6 @@ const App = () => {
       <GlobalStyles />
       <Layout>
         <Hero />
-        <StyledButton>کلیک کن</StyledButton>
         <Courses />
       </Layout>
     </ThemeProvider>
