@@ -4,10 +4,12 @@ import { ThemeProvider } from "styled-components";
 import { Layout, Hero, Courses, StyledButton } from "./components";
 import { GlobalStyles } from "./GlobalStyle";
 import { data, filteringLogic } from "./helper";
-import { lightTheme } from "./theme/theme";
+import useDark from "./hooks/useDark";
+import { darkTheme, lightTheme } from "./theme/theme";
 
 const App = () => {
   const [filteredProducts, setFilteredProducts] = useState(data);
+  const { theme: localTheme } = useDark();
 
   const allProducts = () => setFilteredProducts(data);
 
@@ -22,8 +24,10 @@ const App = () => {
     console.log(filteredData);
   };
 
+  const activeTheme = localTheme === "light" ? lightTheme() : darkTheme();
+
   return (
-    <ThemeProvider theme={lightTheme}>
+    <ThemeProvider theme={activeTheme}>
       <GlobalStyles />
       <Layout>
         <Hero />

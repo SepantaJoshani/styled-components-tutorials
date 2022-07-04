@@ -1,7 +1,7 @@
 import { uuid } from "../../helper/uuid";
 import { Squash as Hamburger } from "hamburger-react";
 import { useState } from "react";
-import MoonIcon from "../../assets/images/moon.svg";
+import { MoonIcon, SunIcon } from "../../assets/images";
 import { useMediaQuery } from "react-haiku";
 import {
   IconButton,
@@ -12,6 +12,7 @@ import {
   StyledHeader,
   StyledImage,
 } from "./Header.styled";
+import useDark from "../../hooks/useDark";
 
 const menuLinks = [
   { id: uuid(), content: "خانه" },
@@ -22,6 +23,7 @@ const menuLinks = [
 const Header = () => {
   const [isOpen, setOpen] = useState(false);
   const smDown = useMediaQuery("(max-width: 640px)");
+  const { toggleTheme, theme } = useDark();
 
   return (
     <StyledHeader>
@@ -33,14 +35,15 @@ const Header = () => {
             <MenuLink key={id}>{content}</MenuLink>
           ))}
           <IconButton
+            onClick={toggleTheme}
             whileHover={{
               rotate: 45,
-              transition: {
-                duration: 0.5,
-              },
             }}
           >
-            <StyledImage src={MoonIcon} alt="moon" />
+            <StyledImage
+              src={theme === "light" ? MoonIcon : SunIcon}
+              alt="moon"
+            />
           </IconButton>
         </MenuList>
       </Nav>
