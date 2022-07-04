@@ -5,7 +5,10 @@ import {
   CoursesContainer,
   FilterBtn,
   FilterSection,
+  CoursesGrid,
 } from "./Courses.styled";
+import { data } from "../../../helper";
+import Course from "./Course";
 const Courses = () => {
   return (
     <CoursesContainer>
@@ -27,6 +30,17 @@ const Courses = () => {
           <span />
         </div>
       </CourseHeading>
+      <CoursesGrid>
+        {data.map(({ id, image, price, text, time }) => (
+          <Course
+            key={id}
+            content={text}
+            duration={time}
+            price={price}
+            image={image}
+          />
+        ))}
+      </CoursesGrid>
     </CoursesContainer>
   );
 };

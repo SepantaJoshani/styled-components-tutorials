@@ -6,3 +6,5 @@ export { default as Javascript } from "./javascript.svg";
 export { default as Tailwind } from "./tailwindCSS.svg";
 export { default as VsCode } from "./vs-code.svg";
 export { default as HTMLCSS } from "./html-css.svg";
+export { default as Timer } from "./timer.svg";
+export { default as Arrow } from "./arrow.svg";
