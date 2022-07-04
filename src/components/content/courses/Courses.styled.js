@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import styled from "styled-components";
 
 export const CoursesContainer = styled.section`
@@ -61,7 +62,7 @@ export const CourseHeading = styled.div`
   }
 `;
 
-export const CoursesGrid = styled.div`
+export const CoursesGrid = styled(motion.div)`
   display: grid;
   grid-template-columns: 1;
   gap: 3rem;
@@ -70,7 +71,7 @@ export const CoursesGrid = styled.div`
     grid-template-columns: repeat(2, 1fr);
     gap: 4rem;
   }
-  @media (min-width: ${(p) => p.theme.breakpoints.md}) {
+  @media (min-width: ${(p) => p.theme.breakpoints.lg}) {
     grid-template-columns: repeat(3, 1fr);
   }
 `;

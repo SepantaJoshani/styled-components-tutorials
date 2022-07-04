@@ -1,5 +1,5 @@
 import React from "react";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import {
   CourseHeading,
   CoursesContainer,
@@ -7,15 +7,14 @@ import {
   FilterSection,
   CoursesGrid,
 } from "./Courses.styled";
-import { data } from "../../../helper";
 import Course from "./Course";
-const Courses = () => {
+const Courses = ({ products, showAll, showJS, showCss }) => {
   return (
     <CoursesContainer>
       <FilterSection>
-        <FilterBtn> همه</FilterBtn>
-        <FilterBtn> جاواسکریپت</FilterBtn>
-        <FilterBtn> سی اس اس </FilterBtn>
+        <FilterBtn onClick={showAll}> همه</FilterBtn>
+        <FilterBtn onClick={showJS}> جاواسکریپت</FilterBtn>
+        <FilterBtn onClick={showCss}> سی اس اس </FilterBtn>
       </FilterSection>
       <CourseHeading>
         <div>
@@ -30,8 +29,9 @@ const Courses = () => {
           <span />
         </div>
       </CourseHeading>
-      <CoursesGrid>
-        {data.map(({ id, image, price, text, time }) => (
+      <CoursesGrid layout>
+        <AnimatePresence>
+        {products.map(({ id, image, price, text, time }) => (
           <Course
             key={id}
             content={text}
@@ -40,6 +40,7 @@ const Courses = () => {
             image={image}
           />
         ))}
+        </AnimatePresence>
       </CoursesGrid>
     </CoursesContainer>
   );
