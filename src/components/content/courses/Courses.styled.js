@@ -18,7 +18,7 @@ export const FilterBtn = styled.button`
   outline: 0;
   border-radius: 10px;
   color: #fff;
-
+cursor: pointer;
   @media (min-width: ${(p) => p.theme.breakpoints.md}) {
     padding: 0.5rem 1.5rem;
     font-size: 1rem;

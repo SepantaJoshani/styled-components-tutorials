@@ -1,7 +1,6 @@
 import { uuid } from "../../helper/uuid";
 import { Squash as Hamburger } from "hamburger-react";
 import { useState } from "react";
-import { MoonIcon, SunIcon } from "../../assets/images";
 import { useMediaQuery } from "react-haiku";
 import {
   IconButton,
@@ -12,6 +11,7 @@ import {
   StyledHeader,
   StyledImage,
 } from "./Header.styled";
+import { MoonIcon, SunIcon } from "../../assets/images";
 import useDark from "../../hooks/useDark";
 
 const menuLinks = [
@@ -22,8 +22,8 @@ const menuLinks = [
 
 const Header = () => {
   const [isOpen, setOpen] = useState(false);
+  const { theme, toggleTheme } = useDark();
   const smDown = useMediaQuery("(max-width: 640px)");
-  const { toggleTheme, theme } = useDark();
 
   return (
     <StyledHeader>

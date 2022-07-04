@@ -10,3 +10,4 @@ export { default as Timer } from "./timer.svg";
 export { default as Arrow } from "./arrow.svg";
 export { default as MoonIcon } from "./moon.svg";
 export { default as SunIcon } from "./sun.svg";
+

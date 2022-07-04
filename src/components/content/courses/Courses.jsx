@@ -31,15 +31,15 @@ const Courses = ({ products, showAll, showJS, showCss }) => {
       </CourseHeading>
       <CoursesGrid layout>
         <AnimatePresence>
-        {products.map(({ id, image, price, text, time }) => (
-          <Course
-            key={id}
-            content={text}
-            duration={time}
-            price={price}
-            image={image}
-          />
-        ))}
+          {products.map(({ id, image, price, text, time }) => (
+            <Course
+              key={id}
+              content={text}
+              duration={time}
+              price={price}
+              image={image}
+            />
+          ))}
         </AnimatePresence>
       </CoursesGrid>
     </CoursesContainer>

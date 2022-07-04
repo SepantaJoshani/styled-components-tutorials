@@ -9,7 +9,7 @@ import { darkTheme, lightTheme } from "./theme/theme";
 
 const App = () => {
   const [filteredProducts, setFilteredProducts] = useState(data);
-  const { theme: localTheme } = useDark();
+  const { theme } = useDark();
 
   const allProducts = () => setFilteredProducts(data);
 
@@ -24,7 +24,7 @@ const App = () => {
     console.log(filteredData);
   };
 
-  const activeTheme = localTheme === "light" ? lightTheme() : darkTheme();
+  const activeTheme = theme === "light" ? lightTheme() : darkTheme();
 
   return (
     <ThemeProvider theme={activeTheme}>

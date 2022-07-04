@@ -5,7 +5,7 @@ export const lightTheme = () => ({
       "linear-gradient(333deg, rgb(43, 1, 121) 0%, rgb(43, 1, 121) 0%, rgb(121, 56, 242) 100%, rgb(121, 56, 242) 100%);",
     secondary: "#0c9c3f",
     header: "#fff",
-    footer: "##FAFAFA˝=",
+    footer: "#fff",
     text: "#000",
     link: "#1d4ed8",
     underline: "rgb(233 213 255)",
